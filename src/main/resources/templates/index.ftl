@@ -1,4 +1,3 @@
-<#--http://apis.map.kakao.com/web/guide/-->
 <!DOCTYPE html>
 <html>
     <head>
@@ -17,6 +16,17 @@
             .category .ico_carpark {background-position:-10px -72px;}
             .category .ico_store2 {margin:0;background:url('/static/img/basket.png') no-repeat;}
         </style>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="author" content="고재성" />
+        <meta name="description" content="Y페이-맵 : 용인 지역화폐 사용처를 카테고리 별로 알려주는 서비스입니다." />
+        <meta name="keywords" content="경기화폐, 와이페이, 용인" />
+        <meta property="og:title" content="Y페이-맵" />
+        <meta property="og:description" content="Y페이-맵 : 용인 지역화폐 사용처를 카테고리 별로 알려주는 서비스입니다." />
+        <meta property="og:image" content="./img/ypay_logo.png" />
+        <meta property="og:url" content="https://ypay.map/" />
+        <meta name="viewport"
+              content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
     </head>
 <body>
 <div id="mapwrap">
