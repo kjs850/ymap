@@ -35,9 +35,7 @@
     <div id="map" style="width:100%;height:100vh;"></div>
     <!-- 지도 위에 표시될 마커 카테고리 -->
     <div class="logo">
-        <a href="/">
-            <img src="./img/ypay_logo.png" style="display:block;margin:0 auto 2px;width:45px;height:60px;">
-        </a>
+        <img src="./img/ypay_logo.png" style="display:block;margin:0 auto 2px;width:45px;height:60px;">
     </div>
     <div class="bottom">
         <a href="#" onclick="getCurrentLocation()">
