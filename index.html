@@ -167,7 +167,7 @@
         kakao.maps.event.addListener(marker, 'click', function() {
             // 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
             infowindow.setContent('<div style="padding:5px;font-size:12px;">' + ypay_place.CMPNM_NM
-                + '<br>' + ypay_place.TELNO
+                + '<br>' + '<a href=tel:"'+ ypay_place.TELNO + '">' + ypay_place.TELNO </a>
                 + '<br>' + ypay_place.REFINE_LOTNO_ADDR
                 + '<br>' + ypay_place.INDUTYPE_NM
                 + '</div>');
