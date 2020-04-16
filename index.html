@@ -6,8 +6,9 @@
     <style>
         #mapwrap{position:relative;overflow:hidden;}
         .category, .category *{margin:0;padding:0;color:#000;}
-        .logo {position:absolute;overflow:hidden;top:10px;left:10px;z-index:10;border:1px solid black;font-family:'Malgun Gothic','맑은 고딕',sans-serif;font-size:12px;text-align:center;background-color:#fff;}
-        .category {position:absolute;overflow:hidden;top:10px;left:80px;width:300px;height:50px;z-index:10;border:1px solid black;font-family:'Malgun Gothic','맑은 고딕',sans-serif;font-size:12px;text-align:center;background-color:#fff;}
+        .logo {position:absolute;overflow:hidden;top:10px;left:7px;z-index:10;border:1px solid black;font-family:'Malgun Gothic','맑은 고딕',sans-serif;font-size:12px;text-align:center;background-color:#fff;}
+        .bottom {position:absolute;overflow:hidden;right:10px;bottom:20px;z-index:10;border:1px solid black;font-family:'Malgun Gothic','맑은 고딕',sans-serif;font-size:12px;text-align:center;background-color:#fff;}
+        .category {position:absolute;overflow:hidden;top:10px;left:60px;width:250px;height:50px;z-index:10;border:1px solid black;font-family:'Malgun Gothic','맑은 고딕',sans-serif;font-size:12px;text-align:center;background-color:#fff;}
         .category .menu_selected {background:#FF5F4A;color:#fff;border-left:1px solid #915B2F;border-right:1px solid #915B2F;margin:0 -1px;}
         .category li{list-style:none;float:left;width:50px;height:45px;padding-top:5px;cursor:pointer;}
         .category .ico_comm {display:block;margin:0 auto 2px;width:22px;height:26px;background:url('http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/category.png') no-repeat;}
@@ -34,15 +35,18 @@
     <div id="map" style="width:100%;height:100vh;"></div>
     <!-- 지도 위에 표시될 마커 카테고리 -->
     <div class="logo">
-        <img src="./img/ypay_logo.png" style="display:block;margin:0 auto 2px;width:65px;height:80px;">
+        <a href="/">
+            <img src="./img/ypay_logo.png" style="display:block;margin:0 auto 2px;width:45px;height:60px;">
+        </a>
+    </div>
+    <div class="bottom">
+        <a href="#" onclick="getCurrentLocation()">
+            <img src="./img/location.png" style="display:block;margin:0 auto 2px;width:27px;height:27px;">
+        </a>
     </div>
 
     <div class="category">
         <ul>
-            <li onclick="getCurrentLocation()">
-                <img src="./img/location.png" style="display:block;margin:0 auto 2px;width:22px;height:26px;">
-                현위치
-            </li>
             <li onclick="getData('basket')">
                 <img src="./img/basket.png" style="display:block;margin:0 auto 2px;width:22px;height:26px;">
                 식품
@@ -81,7 +85,7 @@
     var map = new kakao.maps.Map(mapContainer, mapOption);
 
     // 마커를 클릭하면 장소명을 표출할 인포윈도우 입니다
-    var infowindow = new kakao.maps.InfoWindow({zIndex:1});
+    var infowindow = new kakao.maps.InfoWindow({zIndex:1 , removable : true});
 
     var markers = []; // 마커를 담을 배열입니다
     var ypay_places = [];
@@ -110,6 +114,7 @@
         }
         markers = [];
         ypay_places = [];
+        infowindow.close();
     }
 
 
@@ -150,8 +155,6 @@
         });
 
     }
-
-    var infowindow = new kakao.maps.InfoWindow({zIndex:1});
 
     function displayPlaces(ypay_place) {
 
