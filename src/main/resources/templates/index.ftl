@@ -16,6 +16,34 @@
             .category .ico_store {background-position:-10px -36px;}
             .category .ico_carpark {background-position:-10px -72px;}
             .category .ico_store2 {margin:0;background:url('/static/img/basket.png') no-repeat;}
+            .loading {
+                background: rgba(0, 0, 0, .5) no-repeat;
+                width: 100%;
+                height: 100%;
+                position: fixed;
+                top: 0;
+                left: 0;
+                z-index: 999;
+                display: none;
+            }
+
+            .spinner {
+                display: inline-block;
+                height: 28px;
+                width: 28px;
+                position: absolute;
+                top: calc(50% - 14px);
+                left: calc(50% - 14px);
+                animation: rotate 0.8s infinite linear;
+                border: 4px solid #fff;
+                border-right-color: transparent;
+                border-radius: 50%;
+            }
+
+            @keyframes rotate {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
         </style>
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -68,11 +96,13 @@
         </ul>
     </div>
 </div>
+<div id="loading" class="loading">
+    <div class="spinner"></div>
+</div>
 <!-- services와 clusterer, drawing 라이브러리 불러오기 -->
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=cd7842b1f0e77ad39555e1b61bf917bf&libraries=services,clusterer,drawing"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="  crossorigin="anonymous"></script>
 <script>
-
 
     var mapContainer = document.getElementById('map'), // 지도를 표시할 div
         mapOption = {
@@ -87,6 +117,8 @@
 
     var markers = []; // 마커를 담을 배열입니다
     var ypay_places = [];
+
+    var $loading = $('.loading');
 
     getCurrentLocation();
 
@@ -118,6 +150,8 @@
 
 
     function getData(category) {
+        $loading.show();
+
         // 지도에 표시되고 있는 마커를 제거합니다
         removeMarker();
 
@@ -138,6 +172,8 @@
             $.each(ypay_places, function (i, ypay_place) {
                 displayPlaces(ypay_place);
             });
+
+            $loading.hide();
         });
 
     }
