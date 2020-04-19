@@ -7,9 +7,40 @@
             #mapwrap{position:relative;overflow:hidden;}
             .category, .category *{margin:0;padding:0;color:#000;}
             .logo {position:absolute;overflow:hidden;top:10px;left:7px;z-index:10;border:1px solid black;font-family:'Malgun Gothic','맑은 고딕',sans-serif;font-size:12px;text-align:center;background-color:#fff;}
-            .bottom {position:absolute;overflow:hidden;right:15px;bottom:35px;z-index:10;border:1px solid black;font-family:'Malgun Gothic','맑은 고딕',sans-serif;font-size:12px;text-align:center;background-color:#fff;}
+            /*.location {position:absolute;overflow:hidden;right:15px;bottom:35px;z-index:10;border:1px solid black;font-family:'Malgun Gothic','맑은 고딕',sans-serif;font-size:12px;text-align:center;background-color:#fff;}*/
+            .location{
+                bottom: 10px;
+                right: 10px;
+                display: block;
+                width: 40px;
+                text-align: center;
+                padding: 5px;
+                z-index: 10;
+                position: fixed;
+                font-size: 12px;
+                background-color: #fff;
+                border-radius: 4px;
+                box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+                border: 1px solid rgba(0, 0, 0, 0.2);
+                background-clip: padding-box;
+            }
+            .author{
+                bottom: 10px;
+                left: 10px;
+                display: block;
+                width: 50px;
+                text-align: center;
+                padding: 5px;
+                z-index: 10;
+                position: fixed;
+                font-size: 12px;
+                background-color: #fff;
+                border-radius: 4px;
+                box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+                border: 1px solid rgba(0, 0, 0, 0.2);
+                background-clip: padding-box;
+            }
             .category {position:absolute;overflow:hidden;top:10px;left:60px;width:250px;height:50px;z-index:10;border:1px solid black;font-family:'Malgun Gothic','맑은 고딕',sans-serif;font-size:12px;text-align:center;background-color:#fff;}
-            .category .menu_selected {background:#FF5F4A;color:#fff;border-left:1px solid #915B2F;border-right:1px solid #915B2F;margin:0 -1px;}
             .category li{list-style:none;float:left;width:50px;height:45px;padding-top:5px;cursor:pointer;}
             .loading {
                 background: rgba(0, 0, 0, .5) no-repeat;
@@ -42,7 +73,7 @@
         </style>
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="author" content="고재성" />
+        <meta name="author" content="고재성, kojaesung@gmail.com" />
         <meta name="description" content="Y페이-맵 : 용인 지역화폐 사용처를 카테고리 별로 알려주는 서비스입니다." />
         <meta name="keywords" content="경기화폐, 와이페이, 용인" />
         <meta property="og:title" content="Y페이-맵" />
@@ -57,10 +88,13 @@
     <!-- 지도가 표시될 div -->
     <div id="map" style="width:100%;height:100vh;"></div>
     <!-- 지도 위에 표시될 마커 카테고리 -->
-    <div class="logo">
+    <div class="logo" onclick="setDefaultLocation()">
         <img src="./img/ypay_logo.png" style="display:block;margin:0 auto 2px;width:45px;height:60px;">
     </div>
-    <div class="bottom">
+    <div class="author">
+        <a href="mailto:kojaesung@gmail.com">버그제보</a>
+    </div>
+    <div class="location">
         <a href="#" onclick="getCurrentLocation()">
             <img src="./img/location.png" style="display:block;margin:0 auto 2px;width:27px;height:27px;">
         </a>
@@ -131,6 +165,10 @@
             });
 
         }
+    }
+
+    function setDefaultLocation() {
+        map.setCenter(new kakao.maps.LatLng(37.240768592, 127.17746482));
     }
 
     function removeMarker() {
