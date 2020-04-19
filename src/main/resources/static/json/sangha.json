@@ -4810,5 +4810,21 @@
     "REFINE_WGS84_LAT":"37.258070347",
     "REFINE_WGS84_LOGT":"127.14196247",
     "DATA_STD_DE":"2019-06-30"
+  },
+  {
+    "REFINE_WGS84_LAT": "37.23579856",
+    "REFINE_WGS84_LOGT": "127.19275551",
+    "CMPNM_NM": "마음둘곳",
+    "TELNO": "031-891-0713",
+    "REFINE_LOTNO_ADDR": "경기도 용인시 처인구 역북동 436-8번지 102호",
+    "INDUTYPE_NM": "일반휴게음식 - 주점"
+  },
+  {
+    "REFINE_WGS84_LAT":"37.23579856",
+    "REFINE_WGS84_LOGT":"127.19265551",
+    "CMPNM_NM":"그라노데카페(GRANODE CAFE)",
+    "TELNO":"",
+    "REFINE_LOTNO_ADDR":"경기도 용인시 처인구 역북동 436-8번지 103호",
+    "INDUTYPE_NM":"일반휴게음식 - 서양음식"
   }
 ]
