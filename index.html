@@ -212,7 +212,7 @@
     }
 
     function savePlaces(item) {
-        console.log("====== savePlaces : " +item.REFINE_WGS84_LAT  + ", " + item.REFINE_WGS84_LOGT + ", " + item.CMPNM_NM);
+        // console.log("====== savePlaces : " +item.REFINE_WGS84_LAT  + ", " + item.REFINE_WGS84_LOGT + ", " + item.CMPNM_NM);
         ypay_places.push({
             position : new kakao.maps.LatLng(item.REFINE_WGS84_LAT, item.REFINE_WGS84_LOGT),
             CMPNM_NM : item.CMPNM_NM,
