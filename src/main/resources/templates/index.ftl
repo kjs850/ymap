@@ -75,11 +75,11 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="author" content="고재성, kojaesung@gmail.com" />
         <meta name="description" content="Y페이-맵 : 용인 지역화폐 사용처를 카테고리 별로 알려주는 서비스입니다." />
-        <meta name="keywords" content="경기화폐, 와이페이, 용인" />
+        <meta name="keywords" content="경기화폐, 와이페이, 용인, 지역화폐, y페이, ypay" />
         <meta property="og:title" content="Y페이-맵" />
         <meta property="og:description" content="Y페이-맵 : 용인 지역화폐 사용처를 카테고리 별로 알려주는 서비스입니다." />
         <meta property="og:image" content="./img/ypay_logo.png" />
-        <meta property="og:url" content="https://ypay.map/" />
+        <meta property="og:url" content="https://y-pay.site/" />
         <meta name="viewport"
               content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
     </head>
@@ -212,7 +212,7 @@
     }
 
     function savePlaces(item) {
-        // console.log("====== savePlaces : " +item.REFINE_WGS84_LAT  + ", " + item.REFINE_WGS84_LOGT + ", " + item.CMPNM_NM);
+        console.log("====== savePlaces : " +item.REFINE_WGS84_LAT  + ", " + item.REFINE_WGS84_LOGT + ", " + item.CMPNM_NM);
         ypay_places.push({
             position : new kakao.maps.LatLng(item.REFINE_WGS84_LAT, item.REFINE_WGS84_LOGT),
             CMPNM_NM : item.CMPNM_NM,
@@ -225,23 +225,23 @@
 
     function displayPlaces(ypay_place) {
 
-            // 마커를 생성하고 지도에 표시합니다
-            var marker = new kakao.maps.Marker({
-                            position: ypay_place.position
-                        });
-            marker.setMap(map);
-            markers.push(marker);
+        // 마커를 생성하고 지도에 표시합니다
+        var marker = new kakao.maps.Marker({
+                        position: ypay_place.position
+                    });
+        marker.setMap(map);
+        markers.push(marker);
 
-            // 마커에 클릭이벤트를 등록합니다
-            kakao.maps.event.addListener(marker, 'click', function() {
-                // 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
-                infowindow.setContent('<div style="padding:5px;font-size:12px;">' + ypay_place.CMPNM_NM
-                                            + '<br>' + '<a href=tel:'+ ypay_place.TELNO + '>' + ypay_place.TELNO + '</a>'
-                                            + '<br>' + ypay_place.REFINE_LOTNO_ADDR
-                                            + '<br>' + ypay_place.INDUTYPE_NM
-                                      + '</div>');
-                infowindow.open(map, marker);
-            });
+        // 마커에 클릭이벤트를 등록합니다
+        kakao.maps.event.addListener(marker, 'click', function() {
+            // 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
+            infowindow.setContent('<div style="padding:5px;font-size:12px;">' + ypay_place.CMPNM_NM
+                                        + '<br>' + '<a href=tel:'+ ypay_place.TELNO + '>' + ypay_place.TELNO + '</a>'
+                                        + '<br>' + ypay_place.REFINE_LOTNO_ADDR
+                                        + '<br>' + ypay_place.INDUTYPE_NM
+                                  + '</div>');
+            infowindow.open(map, marker);
+        });
 
     }
 
